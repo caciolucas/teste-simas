@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de fabricante</title>
+</head>
+<body>
+    <h1>Fabricantes</h1>
+    <a href="../">Voltar</a>
+    <form method="POST" action=".">
+        <table>
+            {% csrf_token %}
+            <tr>
+                <td>Nome:</td>
+                <td><input name="nome" type="text"/></td>
+            </tr>
+            <tr>
+                <td/>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

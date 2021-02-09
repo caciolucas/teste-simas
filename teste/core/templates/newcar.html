@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de carro</title>
+</head>
+<body>
+    <h1>Carros</h1>
+    <a href="../">Voltar</a>
+    <form method="POST" action=".">
+        <table>
+            {% csrf_token %}
+            <input type="hidden" value="{{carro.id}}" name="id"/>
+            <tr>
+                <td>Placa:</td>
+                <td><input {%if carro %} value="{{carro.placa}}" {% endif %} name="placa" type="text"/></td>
+            </tr>
+            <tr>
+                <td>Modelo:</td>
+                <td><input {%if carro %} value="{{carro.modelo}}" {% endif %} name="modelo" type="text"/></td>
+            </tr>
+            <tr>
+                <td>Placa:</td>
+                <td>
+                    <select name="fabricante" >
+                        {% for fabricante in fabricantes %}
+                        <option {%if carro.fabricante == fabricante.id %} selected  {% endif %}value="{{fabricante.id}}">{{fabricante}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td/>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
